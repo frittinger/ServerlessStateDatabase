@@ -5,17 +5,10 @@ import azure.cosmos.cosmos_client as cosmos_client
 import azure.functions as func
 import azure.cosmos.exceptions as exceptions
 
-settings = {
-    'host': os.environ.get('ACCOUNT_HOST', 'https://serverless-state-database-fr.documents.azure.com:443/'),
-    'master_key': os.environ.get('ACCOUNT_KEY', 'ahcimd2reQgQeBfuZxnE1Ffcfq04kuZRA2sREtS4NmRAXUpx4po2GOejobmgS8g9YKF6SQlOympLmeRKJ0eoOA=='),
-    'database_id': os.environ.get('COSMOS_DATABASE', 'States'),
-    'container_id': os.environ.get('COSMOS_CONTAINER', 'Data'),
-}
-
-HOST = settings['host']
-MASTER_KEY = settings['master_key']
-DATABASE_ID = settings['database_id']
-CONTAINER_ID = settings['container_id']
+HOST = os.environ.get('ACCOUNT_HOST')
+MASTER_KEY = os.environ.get('ACCOUNT_KEY')
+DATABASE_ID = os.environ.get('COSMOS_DATABASE')
+CONTAINER_ID = os.environ.get('COSMOS_CONTAINER')
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
