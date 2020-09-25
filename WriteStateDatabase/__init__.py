@@ -37,7 +37,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         state = create_state(name)
         logging.info(f'State created {state}.')
 
-        client = cosmos_client.CosmosClient(HOST, {'masterKey': MASTER_KEY}, user_agent="CosmosDBDotnetQuickstart", user_agent_overwrite=True)
+        client = cosmos_client.CosmosClient(HOST, {'masterKey': MASTER_KEY},
+                                            user_agent="CosmosDBDotnetQuickstart",
+                                            user_agent_overwrite=True)
         try:
             database = client.get_database_client(DATABASE_ID)
             container = database.get_container_client(CONTAINER_ID)
@@ -53,7 +55,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     else:
         return func.HttpResponse(
-             "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+             "Pass a name in the query string or in the request body for a personalized response.",
              status_code=200
         )
 
